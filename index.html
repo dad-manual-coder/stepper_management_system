@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stepper Electronic - Business Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>BMS</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-link active" data-view="dashboard">Dashboard</a>
+                <a href="#" class="nav-link" data-view="sales">Sales</a>
+                <a href="#" class="nav-link" data-view="swaps">Swaps</a>
+                <a href="#" class="nav-link" data-view="supplies">Supplies</a>
+                <a href="#" class="nav-link" data-view="customers">Customers</a>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="dark-mode-toggle">Toggle Theme</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Dashboard</h1>
+                <div class="actions">
+                    <input type="search" id="search-bar" placeholder="Search by name, model...">
+                    <div class="header-buttons">
+                         <button class="add-btn" data-type="sale">+ Add Sale</button>
+                         <button class="add-btn" data-type="swap-up">+ Swap Up</button>
+                         <button class="add-btn" data-type="swap-down">− Swap Down</button>
+                         <button class="add-btn" data-type="android-swap">+ Android Swap</button>
+                         <button class="add-btn" data-type="supply">📦 Add Supply</button>
+                    </div>
+                </div>
+            </header>
+
+            <section class="summary-section">
+                <div class="summary-card">
+                    <h4>Today's Income</h4>
+                    <p id="today-income">D0</p>
+                    <small>Overall: <span id="total-income">D0</span></small>
+                </div>
+                <div class="summary-card">
+                    <h4>Today's Expenses</h4>
+                    <p id="today-expenses">D0</p>
+                    <small>Overall: <span id="total-expenses">D0</span></small>
+                </div>
+                 <div class="summary-card pending">
+                    <h4>Pending Payments</h4>
+                    <p id="pending-count">0</p>
+                    <small>Total Owed: <span id="total-owed">D0</span></small>
+                </div>
+                 <div class="summary-card">
+                    <h4>Today's Swaps</h4>
+                    <p id="today-swaps">0</p>
+                    <small>Overall: <span id="total-swaps">0</span></small>
+                </div>
+            </section>
+
+             <section class="records-section">
+                <div class="records-header">
+                    <h2>All Records</h2>
+                    <div class="filter-controls">
+                        <select id="date-filter">
+                            <option value="all">All Time</option>
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="records-container" class="records-grid">
+                    <p class="empty-state">No records found. Add a transaction to get started!</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <div id="modal-overlay" class="hidden">
+        <div id="modal-content">
+            </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
