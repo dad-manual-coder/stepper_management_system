@@ -1,4 +1,4 @@
-name: NodeJS with Gulp
+name: NodeJS with Backend
 
 on:
   push:
@@ -9,7 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [18.x, 20.x, 22.x]
@@ -22,7 +21,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Build
-      run: |
-        npm install
-        gulp
+    - name: Install dependencies
+      run: npm install
+      working-directory: Backend
+
+    - name: Start backend (optional)
+      run: npm run start
+      working-directory: Backend
